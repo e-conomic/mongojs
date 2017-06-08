@@ -617,7 +617,7 @@ var connect = function(config, collections) {
     mongodb.Db.connect(connectionString, {
         server: {
           socketOptions: {
-            keepAlive: 120
+            keepAlive: 30
           },
           auto_reconnect: true
         }
