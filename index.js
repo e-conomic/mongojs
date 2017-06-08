@@ -614,7 +614,14 @@ var connect = function(config, collections) {
   }
 
   var ondb = thunky(function(callback) {
-    mongodb.Db.connect(connectionString, function(err, db) {
+    mongodb.Db.connect(connectionString, {
+        server: {
+          socketOptions: {
+            keepAlive: 120
+          },
+          auto_reconnect: true
+        }
+    }, function(err, db) {
       if (err) {
         that.emit('error', err);
         return callback(err);
