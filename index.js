@@ -620,6 +620,11 @@ var connect = function(config, collections) {
             keepAlive: 30
           },
           auto_reconnect: true
+        },
+        replSet: {
+          socketOptions: {
+            keepAlive: 30
+          }
         }
     }, function(err, db) {
       if (err) {
